@@ -1,0 +1,32 @@
+{
+  "name": "hawksearch-handlebars",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --config ./webpack.config.js --mode production",
+    "build": "webpack --config ./webpack.config.js --mode development",
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-loader": "^8.0.6",
+    "mini-css-extract-plugin": "^0.11.2",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "styles-loader": "^2.0.0",
+    "terser-webpack-plugin": "^4.2.1",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.10.4",
+    "css-loader": "^4.3.0",
+    "es6-promise": "^4.2.8",
+    "file-loader": "^6.1.0",
+    "url-search-params-polyfill": "^8.1.0",
+    "whatwg-fetch": "^3.4.0"
+  }
+}

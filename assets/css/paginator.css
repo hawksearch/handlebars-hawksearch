@@ -1,0 +1,349 @@
+.hawk-paging > * {
+  flex: 1 0 auto;
+}
+
+.hawk-listingControls {
+  position: relative;
+  margin-bottom: 12px;
+  padding: 1px;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+.hawk-listingControls .hawk-mainControls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 15px 0;
+  background: none;
+}
+
+@media (min-width: 1200px) {
+  .hawk-listingControls .hawk-mainControls {
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+  }
+}
+
+#hawk-pagination-top-bar,
+#hawk-pagination-bottom-bar {
+  display: flex;
+}
+
+.hawk-listingControls .hawk-subControls {
+  padding: 8px 10px;
+  background: #f0f0f0;
+}
+
+.hawk-listingControls .hawk-mainControls {
+  background: #5f3b17 !important;
+}
+
+.hawk-listingControls .hawk-pagination .hawk-paging .hawk-pageActive {
+  background-color: #f37624 !important;
+}
+
+/* ## layout control box ## */
+
+@media (min-width: 1200px) {
+  .hawk-sortWrapper {
+    margin: 0;
+  }
+}
+
+.hawk-sortWrapper .sortList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  float: left;
+  padding: 0 10px 0;
+}
+
+.hawk-sortWrapper .sortList label,
+.hawk-pagination .hawk-viewNumber label {
+  display: block;
+  margin: 0 15px 0 0;
+  font-size: 14px;
+  font-weight: normal;
+  color: #3f4044;
+  white-space: nowrap;
+}
+
+.hawk-sortWrapper .sortList select {
+  margin-right: 10px;
+  height: 46px;
+  border: 1px solid #d1d1d1;
+  border-radius: 3px;
+  padding: 0 0 0 15px;
+  color: #000000;
+  font-size: 15px;
+}
+
+.hawk-listingControls .hawk-pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0;
+  font-size: 16px;
+}
+
+@media (min-width: 768px) {
+  .hawk-listingControls .hawk-pagination {
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+  }
+}
+
+.hawk-listingControls .hawk-pagination .hawk-viewNumber {
+  margin-left: 0;
+  margin-bottom: 1em;
+  width: 100%;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hawk-listingControls .hawk-pagination .hawk-viewNumber {
+    margin-left: 10px;
+    margin-bottom: 0;
+  }
+}
+
+.hawk-listingControls .hawk-pagination .hawk-viewNumber .hawkmpp {
+  margin-right: 10px;
+  height: 46px;
+  border: 1px solid #d1d1d1;
+  border-radius: 3px;
+  padding: 0 0 0 15px;
+  color: #000000;
+  font-size: 15px;
+}
+
+.hawk-listingControls .hawk-paging {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border: 0;
+}
+
+.hawk-listingControls .hawk-paging a.hawk-pageLink,
+.hawk-listingControls .hawk-paging a.hawk-pageLink:link,
+.hawk-listingControls .hawk-paging a.hawk-pageLink:visited {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0 4px;
+  margin: 0 2.5px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 16px;
+  font-weight: normal;
+  color: #3f4044;
+  background-color: #fff;
+  -webkit-transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.hawk-listingControls .hawk-paging a.hawk-pageLink:hover {
+  background-color: #f37622;
+  color: #fff;
+  border-radius: 2px;
+}
+
+.hawk-listingControls
+  .hawk-pagination
+  .hawk-paging
+  a.hawk-pageLink.hawk-arrowDoubleLeft,
+.hawk-listingControls
+  .hawk-pagination
+  .hawk-paging
+  a.hawk-pageLink.hawk-arrowDoubleRight {
+  background-color: #f37622;
+  color: #ffffff;
+  border-radius: 2px;
+}
+
+.hawk-listingControls
+  .hawk-pagination
+  .hawk-paging
+  a.hawk-pageLink.hawk-arrowLeft,
+.hawk-listingControls
+  .hawk-pagination
+  .hawk-paging
+  a.hawk-pageLink.hawk-arrowRight {
+  background-color: #d6d6d6;
+  border-radius: 2px;
+  border: 1px solid #c7c7c7;
+}
+
+.hawk-listingControls
+  .hawk-pagination
+  .hawk-paging
+  a.hawk-pageLink.hawk-arrowLeft:hover,
+.hawk-listingControls
+  .hawk-pagination
+  .hawk-paging
+  a.hawk-pageLink.hawk-arrowRight:hover {
+  background-color: #c0c0c0;
+  border-color: #959595;
+  color: #3f4044;
+}
+
+.hawk-listingControls .hawk-paging .hawk-pageActive {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0 4px;
+  margin: 0 2.5px;
+  text-decoration: none;
+  text-align: center;
+  background-color: #f37622;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: normal;
+  border-radius: 2px;
+}
+
+.hawk-listingControls .hawk-pagination .hawk-paging .hawk-arrowLeft,
+.hawk-listingControls .hawk-pagination .hawk-paging .hawk-arrowRight,
+.hawk-listingControls .hawk-pagination .hawk-paging .hawk-arrowDoubleLeft,
+.hawk-listingControls .hawk-pagination .hawk-paging .hawk-arrowDoubleRight {
+  display: inline-block;
+  padding: 0 4px;
+  color: #fff;
+  text-decoration: none;
+  min-width: 15px;
+}
+
+/* embedding icomoon for previous and next arrows */
+.hawk-listingControls .hawk-pagination .hawk-paging .hawk-arrowLeft:before,
+.hawk-listingControls .hawk-pagination .hawk-paging .hawk-arrowRight:after,
+.hawk-listingControls
+  .hawk-pagination
+  .hawk-paging
+  .hawk-arrowDoubleLeft:before,
+.hawk-listingControls
+  .hawk-pagination
+  .hawk-paging
+  .hawk-arrowDoubleRight:after {
+  font-family: "hawksearch";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 16px;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  top: 12px;
+  position: relative;
+}
+
+.hawk-listingControls .hawk-paging .hawk-arrowLeft:before {
+  content: "\e603";
+}
+
+.hawk-listingControls .hawk-paging .hawk-arrowRight:after {
+  content: "\e606";
+}
+
+.hawk-listingControls .hawk-pagination .hawk-paging .total {
+  display: none;
+  color: #fff;
+}
+
+.hawk-itemPaging {
+  display: inline;
+}
+
+.hawk-itemPaging span:nth-child(1) {
+  display: inline-block;
+}
+
+.hawk-itemPaging span:nth-child(2) {
+  display: inline-block;
+}
+
+.hawk-itemPaging span:nth-child(3) {
+  display: inline-block;
+}
+
+.hawk-itemPaging span:nth-child(4) {
+  display: inline-block;
+}
+
+.hawk-itemPaging span:last-child {
+  display: inline-block;
+}
+
+.hawk-itemPaging span.hawk-pageDots:last-child:before {
+  padding: 0 8px;
+  padding: 0 0.5rem;
+  content: "...";
+  color: #fff;
+}
+.hawk-visuallyHidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.hawk-visuallyHidden.focusable:active,
+.hawk-visuallyHidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}

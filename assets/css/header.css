@@ -1,0 +1,191 @@
+.hawk-header {
+  position: relative;
+  padding: 10px 0;
+  color: #fff;
+  background-color: #f0f0f0;
+  border-top: 1px solid #523116;
+  border-bottom: 1px solid #b8b8b8;
+  -webkit-box-shadow: 0 0 3px 0 rgba(82, 49, 22, 0.75);
+  box-shadow: 0 0 3px 0 rgba(82, 49, 22, 0.75);
+  margin-bottom: 20px;
+}
+
+.hawk-siteLogo {
+  display: block;
+  width: 225px;
+  height: 43px;
+  margin: 12px 0 0;
+  text-indent: -9999em;
+  background: url(http://manage.hawksearch.com/sites/shared/images/logoHawk2.png)
+    no-repeat 0 0;
+  overflow: hidden;
+}
+
+.hawk-header .hawk-site-search {
+  position: relative;
+  margin: 10px 0 0;
+  padding: 1px;
+  background-color: #fff;
+  border: 1px solid #b8b8b8;
+  border-radius: 4px;
+}
+
+.hawk-header .hawk-site-search .text {
+  width: 100%;
+  padding: 4px 130px 4px 30px;
+  font-size: 0.933em;
+  background: none;
+  border: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 50px;
+  color: #595959;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+
+.hawk-header .hawk-btnSearch {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 4px 30px;
+  border: 0;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+
+.hawk-btnSearch {
+  display: inline-block;
+  margin: 0;
+  padding: 4px;
+  font-size: 13px;
+  font-weight: normal;
+  color: #fff;
+  background-color: #f37624;
+  border: 1px solid #fff;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: visible;
+}
+.hawk-header .hawk-btnSearch {
+  background-color: #f37624 !important;
+}
+
+
+
+/* ## Search Lookup Dropdown ## */
+
+.hawk-searchQuery {
+  position: absolute;
+  display: none;
+  width: 300px;
+  margin: 5px 0 0 0;
+  background: #fff;
+  border: 1px solid #aaaaaa !important;
+  border-radius: 3px 3px 3px 3px;
+  box-shadow: 0 0 4px 1px rgba(50, 50, 50, 0.25);
+  z-index: 999999;
+  text-align: left;
+}
+
+.hawk-searchQuery-keyword {
+  margin-left: -1px;
+}
+
+.hawk-searchQuery .hawk-sqHeader {
+  padding: 5px;
+  color: #646669;
+  font-weight: bold;
+  background: #d9d9d9;
+}
+
+.hawk-searchQuery .hawk-sqContent {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.hawk-searchQuery .hawk-sqItem {
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 6px 10px;
+  color: #8b2300;
+  text-decoration: none;
+  border: 1px solid #fff;
+  cursor: pointer;
+  zoom: 1;
+}
+
+.hawk-searchQuery .hawk-sqItemAlt {
+  background-color: #f3f3f3;
+}
+
+.hawk-searchQuery .hawk-sqActive {
+  border-color: #8b2300;
+}
+
+/* embedded clearfix on results item: h5bp.com/q */
+.hawk-searchQuery .hawk-sqItem:before,
+.hawk-searchQuery .hawk-sqItem:after {
+  content: "";
+  display: table;
+}
+
+.hawk-searchQuery .hawk-sqItem:after {
+  clear: both;
+}
+
+.hawk-searchQuery .hawk-sqItemImage {
+  display: inline;
+  float: left;
+  width: 70px;
+  height: auto;
+  margin: 0;
+  text-align: center;
+}
+
+.hawk-searchQuery .hawk-sqItemImage .hawk-sqItemImage-thumb {
+  max-width: 70px;
+  max-height: 70px;
+}
+
+.hawk-searchQuery .hawk-sqItemContent {
+  display: block;
+  margin-left: 80px;
+}
+
+.hawk-searchQuery .hawk-sqItemName {
+  display: block;
+  margin: 0;
+  font-weight: normal;
+  font-size: 1em;
+  border: 0;
+}
+
+.hawk-searchQuery .hawk-sqFooter {
+  padding: 5px;
+  background: #d9d9d9;
+}
+
+.hawk-searchQuery .hawk-sqFooter a,
+.hawk-searchQuery .hawk-sqFooter a:link,
+.hawk-searchQuery .hawk-sqFooter a:visited {
+  display: inline-block;
+  padding: 1px 25px 0 0;
+  color: #374351;
+  font-size: 0.875em;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.hawk-searchQuery .hawk-footerLink:hover {
+  text-decoration: none;
+}
