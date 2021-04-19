@@ -488,7 +488,7 @@ const HAWK_MERCHANDISING_BANNER_TEMPLATE = `
         <a href={{this.ForwardUrl}}>
           <img
             id="hawk-banner-img-load"
-            src="{{getGlobalVariable 'HawkDashboardUrl'}}{{this.ImageUrl}}"
+            src="{{this.ImageUrl}}"
             title={{this.Title}}
             alt={{this.AltTag}}
           />
@@ -997,7 +997,7 @@ Handlebars.registerPartial("NestedCheckbox", NESTED_CHECKBOX_TEMPLATE);
     }
   });
   // Global variables declares here...
-  // Stored selected facets
+  // Store selected facets
   var selectedFacets = [];
 
   var BannerZone = {
@@ -1113,6 +1113,7 @@ Handlebars.registerPartial("NestedCheckbox", NESTED_CHECKBOX_TEMPLATE);
       ClientGuid: Hawksearch.ClientGuid,
       IsInPreview: true,
       ...Hawksearch.store.pendingSearch,
+      IndexName : Hawksearch.CurrentIndex,
     };
     loaderService.showLoader();
     return requestGenerator(Hawksearch.SearchAPIUrl, payload, "POST")
@@ -1393,6 +1394,7 @@ Handlebars.registerPartial("NestedCheckbox", NESTED_CHECKBOX_TEMPLATE);
       delete facetSelections[facetField];
     }
     // Hawksearch.setSearchSelections(facetSelections, Hawksearch.store.pendingSearch.SearchWithin);
+    selectedFacets = facetSelections;
     Hawksearch.setSearchSelections({
       FacetSelections: facetSelections,
       SearchWithin: Hawksearch.store.pendingSearch.SearchWithin,
@@ -1762,10 +1764,10 @@ Handlebars.registerPartial("NestedCheckbox", NESTED_CHECKBOX_TEMPLATE);
         var selectionField = paramName ? paramName : facetField;
         var value = this.getAttribute("data-attr-value");
         var label = this.getAttribute("data-attr-label");
-        selectedFacets.push({
-          field: selectionField,
-          value: value,
-        });
+        // selectedFacets.push({
+        //   field: selectionField,
+        //   value: value,
+        // });
         toggleFacetValue(
           {
             Name: facetName,
@@ -1817,32 +1819,25 @@ Handlebars.registerPartial("NestedCheckbox", NESTED_CHECKBOX_TEMPLATE);
         var facetName = event.target.getAttribute("data-attr-facet-name");
         var paramName = event.target.getAttribute("data-attr-facet-param-name");
         var selectionField = paramName ? paramName : facetField;
-        var isChecked = event.target.checked;
         var value = event.target.getAttribute("data-attr-value");
         var label = event.target.getAttribute("data-attr-label");
-        // if (isChecked) {
-        //   // push
-        //   selectedFacets.push({
-        //     field: selectionField,
-        //     value: value,
-        //   });
-        // } else {
-        //   // remove
-        //   var filtered = selectedFacets.filter((item) => item.value !== value);
-        //   selectedFacets = filtered;
-        // }
-
-        // maintain dictionary/....
-        toggleFacetValue(
-          {
+        if(selectedFacets[selectionField] && selectedFacets[selectionField].indexOf(label) !== -1) {
+          toggleFacetValue(
+            {
+              Name: facetName,
+              selectionField: selectionField,
+            },
+            {
+              Value: value,
+              Label: label,
+            }
+          );
+        } else {
+          setFacetValues( {
             Name: facetName,
-            selectionField: selectionField,
-          },
-          {
-            Value: value,
-            Label: label,
-          }
-        );
+            selectionField: facetField,
+          }, [{Value: value, Label: label}])
+        }
       });
     });
   }
@@ -2556,6 +2551,7 @@ Handlebars.registerPartial("NestedCheckbox", NESTED_CHECKBOX_TEMPLATE);
       loadMerchandisingBanner(Hawksearch.store.searchResults);
       loadTabSelectionBar(searchedDataResponse.Facets || []);
       loadAutocorrectSuggestionList(searchedDataResponse.DidYouMean);
+      selectedFacets = Hawksearch.store.pendingSearch.FacetSelections;
     });
   };
 
