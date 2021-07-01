@@ -1793,10 +1793,10 @@ Handlebars.registerPartial("NestedCheckbox", NESTED_CHECKBOX_TEMPLATE);
         var isChecked = this.checked;
         var value = this.getAttribute("data-attr-value");
         var label = this.getAttribute("data-attr-label");
-        selectedFacets.push({
-          field: selectionField,
-          value: value,
-        });
+        // selectedFacets.push({
+        //   field: selectionField,
+        //   value: value,
+        // });
         toggleFacetValue(
           {
             Name: facetName,
@@ -1939,11 +1939,22 @@ Handlebars.registerPartial("NestedCheckbox", NESTED_CHECKBOX_TEMPLATE);
         var value = event.target.getAttribute("data-attr-value");
         var label = event.target.getAttribute("data-attr-label");
         if (isChecked) {
+          // if(selectedFacets[selectionField]) {
+          //   var selectedValues = selectedFacets[selectionField];
+          //   selectedValues.push(value);
+          //   selectedFacets = {
+          //     [selectionField]: selectedValues
+          //   }
+          // } else {
+          //   selectedFacets = {
+          //     [selectionField]: [value]
+          //   }
+          // }
           // push
-          selectedFacets.push({
-            field: selectionField,
-            value: value,
-          });
+          // selectedFacets.push({
+          //   field: selectionField,
+          //   value: value,
+          // });
         } else {
           // remove
           var filtered = selectedFacets.filter((item) => item.value !== value);
