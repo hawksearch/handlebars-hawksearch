@@ -1957,8 +1957,8 @@ Handlebars.registerPartial("NestedCheckbox", NESTED_CHECKBOX_TEMPLATE);
           // });
         } else {
           // remove
-          var filtered = selectedFacets.filter((item) => item.value !== value);
-          selectedFacets = filtered;
+          // var filtered = selectedFacets.filter((item) => item.value !== value);
+          // selectedFacets = filtered;
         }
 
         // maintain dictionary/....
