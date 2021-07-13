@@ -4218,6 +4218,7 @@ Handlebars.registerPartial("NestedCheckbox", NESTED_CHECKBOX_TEMPLATE);
       ...Hawksearch.store.pendingSearch,
       IndexName : Hawksearch.CurrentIndex,
     };
+    
     loaderService.showLoader();
     return requestGenerator(Hawksearch.SearchAPIUrl, payload, "POST")
       .then(function (res) {
