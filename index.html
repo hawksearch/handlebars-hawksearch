@@ -1,148 +1,42 @@
 <html>
-  <head>
-    <title>Hawk Search</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
-    <script src="./lib/nouislider.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="./assets/css/grid.css" />
-    <link rel="stylesheet" type="text/css" href="./assets/css/hawksearch.css" />
-    <link rel="stylesheet" type="text/css" href="./assets/css/header.css" />
-    <link rel="stylesheet" type="text/css" href="./assets/css/paginator.css" />
+<head>
+  <title>Hawk Search</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="./hawk.css" />
 
-  </head>
-  <body class="hawk">
+</head>
 
-    <div id="hawk-compare-modal" style="display: none;"></div>
-    <div id="hawk-modal-backdrop" class="hawk-modal-backdrop fade in" style="display: none;"></div>
+<body class="hawk">
 
-    <div class="siteWrap">
-      <div id="hawk-page-loader" class="hawk-display-none hawk-page-loader">
-        <span>Loading...</span>
-      </div>
-      <div id="hawk-header" class="hawk-header">
-        <div class="container">
-            <div class="grid_5">
-              <a href="http://www.hawksearch.com" class="hawk-siteLogo"></a>
-            </div>
-            <div class="grid_7 sw_stack">
-              <div class="hawk-site-search">
-                <input
-                  id="keyword"
-                  class="text"
-                  onfocus="this.value='',this.style.color= '#000000'"
-                  title="enter keyword"
-                  value="Enter Keyword"
-                  type="text"
-                  name="keyword"
-                />
-                <input class="hawk-btnSearch" id="hawk_btnSearch" type="submit" value="Search" name="btnSearch">
-              </div>
-            </div>
+  <div id="hawk-compare-modal" style="display: none;"></div>
+  <div id="hawk-modal-backdrop" class="hawk-modal-backdrop fade in" style="display: none;"></div>
+
+  <div class="siteWrap">
+    <div id="hawk-page-loader" class="hawk-display-none hawk-page-loader"></div>
+    <div id="hawk-header" class="hawk-header"></div>
+    <div class="sitebody clearfix">
+      <div class="container">
+        <div class="grid_3">
+            <div id="hawk-top-left-banner"></div>
+            <div id="hawkfacets"></div>
+            <div id="hawk-bottom-left-banner"></div>
         </div>
-      </div>
-      <div class="sitebody clearfix">
-        <div class="container">
-          <div class="grid_3">
-            <div class="hawk-facetScollingContainer">
-              <div id="hawkfacets" class="hawk-facet-rail">
-                <div id="hawk-top-left-banner"></div>
-                <div class="hawk-railNavHeading">Narrow Results</div>
-                <div class="hawkRailNav">
-                  <div id="hawk-current-selection-bar" class="hawk-guidedNavWrapper"></div>
-                  <div id="hawk-facet-list" class="hawk-guidedNavWrapper"></div>
-                </div>
-                <div id="hawk-bottom-left-banner"></div>
-              </div>
-            </div>
-          </div>
-          <div class="grid_9">
-            <div>
-              <div id="hawk-auto-correct-keyword-list" class="hawk-auto-correct-keyword-container"></div>
-              <div id="hawk-top-banner"></div>
-              <div id="hawk-tabs-bar"></div>
-              <div id="hawktoppager">
-                <div class="hawk-listingControls">
-                  <div class="hawk-mainControls clearfix">
-                    <div id="hawk-pagination-top-bar"></div>
-                  </div>
-                  <div class="hawk-subControls clearfix">
-                    <div id="hawk-compare-items-bar"></div>
-                  </div>
-                </div>
-              </div>
-              <div id="hawk-bottom-banner"></div>
-              <div id="hawk-bottom2-banner"></div>
-              <div id="hawk-result-items-container" class="hawk-results itemList productList clearfix s_1half sw_1third m_1third ui-sortable"></div>
-              <!-- <div id="hawk-pagination-bottom-bar"></div> -->
-              <div>
-                <div class="hawk-listingControls">
-                  <div class="hawk-mainControls clearfix">
-                    <div id="hawk-pagination-bottom-bar"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="grid_9">
+          <div id="hawk-auto-correct-keyword-list"></div>
+          <div id="hawk-top-banner"></div>
+          <div id="hawk-tabs-bar"></div>
+          <div id="hawk-top-pagination"></div>
+          <div id="hawk-result-items"></div>
+          <div id="hawk-bottom-banner"></div>
+          <div id="hawk-bottom2-banner"></div>
+          <div id="hawk-bottom-pagination"></div>
         </div>
       </div>
     </div>
-  <script>
-    if (!Element.prototype.matches) {
-      Element.prototype.matches =
-        Element.prototype.msMatchesSelector ||
-        Element.prototype.webkitMatchesSelector;
-    }
+  </div>
+</body>
+<script src="./hawk.js"></script>
 
-    if (!Element.prototype.closest) {
-      Element.prototype.closest = function(s) {
-        var el = this;
-
-        do {
-          if (Element.prototype.matches.call(el, s)) return el;
-          el = el.parentElement || el.parentNode;
-        } while (el !== null && el.nodeType === 1);
-        return null;
-      };
-    }
-    if (window.NodeList && !NodeList.prototype.forEach) {
-      NodeList.prototype.forEach = Array.prototype.forEach;
-    }
-  </script>
-  <script>
-
-
-    (function (Hawksearch, undefined) {
-      Hawksearch.ClientGuid = "f51060e1c38446f0bacdf283390c37e8";
-      // Hawksearch.SearchAPIUrl =
-      //   "https://searchapi-dev.hawksearch.net/api/v2/search";
-      Hawksearch.SearchAPIUrl = 'https://searchapi-dev.hawksearch.net/api/v2/search';
-      Hawksearch.CompareItemsAPIURL = 'https://searchapi-dev.hawksearch.net/api/compare';
-      Hawksearch.CurrentIndex = undefined;
-      Hawksearch.WebsiteUrl = "http://demo.hawksearch.net";
-      Hawksearch.HawkDashboardUrl = "http://dev.hawksearch.net";
-      Hawksearch.TrackingUrl = "https://tracking-dev.hawksearch.net";
-      Hawksearch.initAutoSuggest = function () {
-        Hawksearch.suggestInit([
-          {
-            queryField: "#keyword",
-            submitBtn: '#hawk_btnSearch',
-            settings: {
-              // lookupUrlPrefix:
-              // "https://searchapi-dev.hawksearch.net/api/autocomplete",
-              lookupUrlPrefix:
-              "https://searchapi-dev.hawksearch.net/api/autocomplete",
-              hiddenDivName: "hawk-main-queryDiv",
-              isAutoWidth: true,
-              isMobile: false,
-            },
-          }
-        ]);
-      };
-    })((window.Hawksearch = window.Hawksearch || {}));
-
-  </script>
-  <script src="./js/event-tracking.js"></script>
-  <script src="./js/hawk.js"></script>
-  <!-- <script src="./dist/bundle.js"></script> -->
 </html>
